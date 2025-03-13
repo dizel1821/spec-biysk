@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🚜</text></svg>">
+    <title>Аренда спецтехники в Бийске | Строительная техника напрокат</title>
+    <meta name="description" content="Профессиональная аренда спецтехники в Бийске: экскаваторы-погрузчики, зерновозы. Новая техника 2023 года, лучшие цены, гарантия качества">
+    <meta name="keywords" content="аренда экскаватора-погрузчика Бийск, экскаватор-погрузчик в аренду Бийск, прокат экскаватора-погрузчика Бийск">
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Аренда спецтехники в Бийске",
+        "image": "images/logo.jpg",
+        "telephone": "+79333103020",
+        "priceRange": "2500-5000 руб/час",
+        "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "ул. Сенная 104/1",
+            "addressLocality": "Бийск",
+            "addressRegion": "Алтайский край"
+        }
+    }
+    </script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', system-ui, sans-serif;
+        }
+
+        body {
+            background: #f8f9fa;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #2c3e50, #3498db);
+            color: white;
+            padding: 4rem 1rem;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        /* Бургер-меню */
+        .burger-menu {
+            display: none;
+            cursor: pointer;
+            padding: 1rem;
+            position: fixed;
+            top: 1rem;
+            right: 1rem;
+            z-index: 1000;
+            background: rgba(52, 73, 94, 0.9);
+            border-radius: 8px;
+        }
+
+        .burger-line {
+            width: 30px;
+            height: 3px;
+            background: white;
+            margin: 5px 0;
+            transition: 0.3s;
+        }
+
+        .nav {
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            display: flex;
+            justify-content: center;
+            gap: 2.5rem;
+            padding: 1.5rem;
+            background: rgba(52, 73, 94, 0.97);
+            backdrop-filter: blur(10px);
+            flex-wrap: wrap;
+        }
+
+        .nav a {
+            color: white;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            padding: 0.5rem 1rem;
+            border-radius: 8px;
+        }
+
+        .nav.active {
+            right: 0;
+        }
+
+        /* WhatsApp кнопка */
+        .whatsapp-button {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            background: #25D366;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 10px 25px rgba(37,211,102,0.3);
+            animation: pulse 2s infinite;
+            z-index: 1000;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+
+        /* Анимации при скролле */
+        [data-scroll] {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+        }
+
+        [data-scroll].visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .hero {
+            text-align: center;
+            padding: 8rem 1rem;
+            position: relative;
+            background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+                        url('images/hero-bg.jpg') center/cover no-repeat;
+            color: white;
+            min-height: 80vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .phone {
+            font-size: 2.2rem;
+            margin: 2rem 0;
+            color: white;
+            text-decoration: none;
+            display: inline-block;
+            background: rgba(255,255,255,0.1);
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            transition: 0.3s;
+        }
+
+        .cta-button {
+            background: linear-gradient(45deg, #e67e22, #d35400);
+            color: white;
+            padding: 1.5rem 3.5rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            margin: 2rem 0;
+            cursor: pointer;
+            transition: 0.3s;
+            box-shadow: 0 5px 15px rgba(230,126,34,0.3);
+        }
+
+        .advantages-section {
+            padding: 5rem 1rem;
+            background: #fff;
+        }
+
+        .advantages-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2.5rem;
+            padding: 2rem;
+        }
+
+        .advantage-card {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+            transition: 0.3s;
+        }
+
+        .advantage-icon {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .pricing-section {
+            background: #f9f9f9;
+            padding: 5rem 1rem;
+        }
+
+        .pricing-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2.5rem;
+            padding: 2rem;
+        }
+
+        .price-card {
+            background: #fff;
+            padding: 2.5rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .price-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, #e67e22, #d35400);
+        }
+
+        .price {
+            font-size: 2.5rem;
+            color: #2c3e50;
+            margin: 1.5rem 0;
+            font-weight: 700;
+        }
+
+        .carousel-container {
+            max-width: 1200px;
+            margin: 4rem auto;
+            padding: 0 1rem;
+        }
+
+        .carousel {
+            position: relative;
+            overflow: hidden;
+            border-radius: 20px;
+            box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+        }
+
+        .carousel-inner {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            height: 600px;
+            position: relative;
+        }
+
+        .carousel-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .carousel-item img.loaded {
+            opacity: 1;
+        }
+
+        .carousel-control {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0,0,0,0.5);
+            color: white;
+            padding: 1rem;
+            border: none;
+            cursor: pointer;
+            font-size: 2rem;
+            transition: 0.3s;
+            z-index: 1;
+        }
+
+        .prev { left: 0; }
+        .next { right: 0; }
+
+        .contact-section {
+            background: #2c3e50;
+            color: white;
+            padding: 5rem 1rem;
+            text-align: center;
+        }
+
+        .legal-info {
+            background: #1a252f;
+            color: #95a5a6;
+            padding: 2rem 1rem;
+            font-size: 0.9rem;
+            text-align: center;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: white;
+            padding: 3rem;
+            border-radius: 25px;
+            z-index: 1000;
+            width: 90%;
+            max-width: 500px;
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2);
+        }
+
+        .modal.active {
+            display: block;
+        }
+
+        .modal-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+            backdrop-filter: blur(5px);
+            z-index: 999;
+        }
+
+        .modal-overlay.active {
+            display: block;
+        }
+
+        .close-btn {
+            position: absolute;
+            top: 1rem;
+            right: 1.5rem;
+            font-size: 2rem;
+            cursor: pointer;
+            color: #666;
+        }
+
+        .form-input {
+            width: 100%;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            border: 2px solid #eee;
+            border-radius: 12px;
+            font-size: 1rem;
+        }
+
+        .submit-btn {
+            background: #e67e22;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+            width: 100%;
+            transition: 0.3s;
+        }
+
+        @media (max-width: 768px) {
+            .nav {
+                position: fixed;
+                right: -100%;
+                height: 100vh;
+                width: 250px;
+                flex-direction: column;
+                padding: 2rem;
+                transition: 0.3s;
+                backdrop-filter: blur(15px);
+                background: rgba(52, 73, 94, 0.98);
+            }
+
+            .burger-menu {
+                display: block;
+            }
+
+            .nav a {
+                padding: 1rem;
+                margin: 0.5rem 0;
+                background: rgba(255,255,255,0.1);
+            }
+
+            .carousel-item {
+                height: 400px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="burger-menu">
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+        <div class="burger-line"></div>
+    </div>
+
+    <header class="header" data-scroll>
+        <h1>Аренда спецтехники в Бийске</h1>
+        <p>Профессиональное оборудование для ваших проектов</p>
+    </header>
+
+    <nav class="nav">
+        <a href="#advantages">Преимущества</a>
+        <a href="#pricing">Цены</a>
+        <a href="#gallery">Галерея</a>
+        <a href="#contact">Контакты</a>
+    </nav>
+
+    <a href="https://wa.me/79333103020" class="whatsapp-button" target="_blank" aria-label="Написать в WhatsApp">
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="white">
+            <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
+        </svg>
+    </a>
+
+    <section class="hero">
+        <h2 data-scroll>Профессиональная техника для любых задач</h2>
+        <a href="tel:+79333103020" class="phone">+7 (933) 310-30-20</a>
+        <button class="cta-button">Оставить заявку</button>
+    </section>
+
+    <section class="advantages-section" id="advantages">
+        <div class="advantages-grid">
+            <div class="advantage-card" data-scroll>
+                <div class="advantage-icon">🚜</div>
+                <h3>Современная техника</h3>
+                <p>Парк обновлённой техники 2023 года выпуска с полным ТО</p>
+            </div>
+            <div class="advantage-card" data-scroll>
+                <div class="advantage-icon">⏱️</div>
+                <h3>Круглосуточная работа</h3>
+                <p>Обеспечиваем технику для работ в любое время суток</p>
+            </div>
+            <div class="advantage-card" data-scroll>
+                <div class="advantage-icon">🛡️</div>
+                <h3>Полная страховка</h3>
+                <p>Все риски застрахованы, работаем официально по договору</p>
+            </div>
+        </div>
+    </section>
+
+    <section class="pricing-section" id="pricing">
+        <h2 style="text-align: center; margin-bottom: 3rem;" data-scroll>Стоимость аренды</h2>
+        <div class="pricing-grid">
+            <div class="price-card" data-scroll>
+                <h3>Экскаватор-погрузчик</h3>
+                <div class="price">3 500 ₽<small>/час</small></div>
+                <ul style="list-style: none; padding: 0;">
+                    <li>✔ Минимальное время - 3 часа</li>
+                    <li>✔ Оператор в подарок</li>
+                    <li>✔ ГСМ включено</li>
+                </ul>
+            </div>
+            <div class="price-card" data-scroll>
+                <h3>Самосвал КамАЗ</h3>
+                <div class="price">2 500 ₽<small>/час</small></div>
+                <ul style="list-style: none; padding: 0;">
+                    <li>✔ Минимальное время - 2 часа</li>
+                    <li>✔ Грузоподъемность 15 тонн</li>
+                    <li>✔ Круглосуточный выезд</li>
+                </ul>
+            </div>
+            <div class="price-card" data-scroll>
+                <h3>Спецтехника под ключ</h3>
+                <div class="price">4 200 ₽<small>/час</small></div>
+                <ul style="list-style: none; padding: 0;">
+                    <li>✔ Комплексное решение</li>
+                    <li>✔ Полное сопровождение</li>
+                    <li>✔ Страховка включена</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <div class="carousel-container" id="gallery">
+        <div class="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item">
+                    <img data-src="images/tech1.jpg" alt="Экскаватор-погрузчик" class="lazyload">
+                </div>
+                <div class="carousel-item">
+                    <img data-src="images/tech2.jpg" alt="Строительная техника" class="lazyload">
+                </div>
+                <div class="carousel-item">
+                    <img data-src="images/tech3.jpg" alt="Самосвал КамАЗ" class="lazyload">
+                </div>
+                <div class="carousel-item">
+                    <img data-src="images/tech4.jpg" alt="Строительная площадка" class="lazyload">
+                </div>
+            </div>
+            <button class="carousel-control prev">❮</button>
+            <button class="carousel-control next">❯</button>
+        </div>
+    </div>
+
+    <section class="contact-section" id="contact">
+        <h2 class="form-title">Контакты</h2>
+        <p style="font-size: 1.5rem; margin: 2rem 0;">
+            📍 Алтайский край, г. Бийск, ул. Сенная 104/1
+        </p>
+        <a href="tel:+79333103020" style="color: white; text-decoration: none; font-size: 1.8rem;">
+            📞 +7 (933) 310-30-20
+        </a>
+    </section>
+
+    <div class="legal-info">
+        <p>ИП Деребизов Виктор Сергеевич</p>
+        <p>ИНН 220400270698 | ОГРНИП 321220500008888</p>
+        <p>Юридический адрес: 659303, Алтайский край, г. Бийск, ул. Петра Мерлина д. 15, кв. 25</p>
+        <p class="developer-credit">
+            Разработка: <a href="mailto:dizel18@mail.ru">DeCoder</a>
+        </p>
+    </div>
+
+    <div class="modal-overlay"></div>
+    <div class="modal">
+        <div class="modal-content">
+            <span class="close-btn">×</span>
+            <h2 class="form-title">Онлайн-заявка</h2>
+            <form id="orderForm">
+                <input type="text" name="name" class="form-input" placeholder="Ваше имя" required>
+                <input type="tel" name="phone" class="form-input" placeholder="Телефон" required>
+                <textarea name="message" class="form-input" placeholder="Сообщение" rows="4"></textarea>
+                <button type="submit" class="submit-btn">Отправить</button>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // Бургер-меню
+        const burger = document.querySelector('.burger-menu');
+        const nav = document.querySelector('.nav');
+        burger.addEventListener('click', () => {
+            nav.classList.toggle('active');
+            document.body.classList.toggle('no-scroll');
+        });
+
+        // Плавный скролл
+        const scrollElements = document.querySelectorAll('[data-scroll]');
+        const checkScroll = () => {
+            scrollElements.forEach(el => {
+                const elementTop = el.getBoundingClientRect().top;
+                if(elementTop < window.innerHeight - 100) {
+                    el.classList.add('visible');
+                }
+            });
+        }
+        window.addEventListener('scroll', checkScroll);
+        checkScroll();
+
+        // Карусель
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.carousel-item');
+        
+        function updateCarousel(newIndex) {
+            if(newIndex < 0) newIndex = slides.length - 1;
+            if(newIndex >= slides.length) newIndex = 0;
+            
+            document.querySelector('.carousel-inner').style.transform = 
+                `translateX(-${newIndex * 100}%)`;
+            
+            currentSlide = newIndex;
+            loadCurrentSlideImage();
+        }
+
+        function loadCurrentSlideImage() {
+            const currentImg = slides[currentSlide].querySelector('img');
+            if(!currentImg.src && currentImg.dataset.src) {
+                currentImg.src = currentImg.dataset.src;
+                currentImg.onload = () => currentImg.classList.add('loaded');
+            }
+        }
+
+        document.querySelector('.prev').addEventListener('click', () => updateCarousel(currentSlide - 1));
+        document.querySelector('.next').addEventListener('click', () => updateCarousel(currentSlide + 1));
+        setInterval(() => updateCarousel(currentSlide + 1), 7000);
+
+        // Загружаем первое изображение сразу
+        loadCurrentSlideImage();
+
+        // Модальное окно
+        const modal = document.querySelector('.modal');
+        const overlay = document.querySelector('.modal-overlay');
+        const openBtn = document.querySelector('.cta-button');
+        const closeBtns = document.querySelectorAll('.close-btn, .modal-overlay');
+
+        function toggleModal() {
+            modal.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+
+        openBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            toggleModal();
+        });
+
+        closeBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                e.preventDefault();
+                toggleModal();
+            });
+        });
+
+        // Отправка формы
+        document.getElementById('orderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Заявка успешно отправлена! Мы свяжемся с вами в ближайшее время.');
+            toggleModal();
+        });
+
+        // Ленивая загрузка остальных изображений
+        const lazyLoad = () => {
+            const images = document.querySelectorAll('img.lazyload');
+            images.forEach(img => {
+                if(img.getBoundingClientRect().top < window.innerHeight + 500 && 
+                   !img.src && 
+                   img.dataset.src) {
+                    img.src = img.dataset.src;
+                    img.onload = () => img.classList.add('loaded');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', lazyLoad);
+        window.addEventListener('resize', lazyLoad);
+        lazyLoad();
+    </script>
+</body>
+</html>
